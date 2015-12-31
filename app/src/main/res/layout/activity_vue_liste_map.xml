@@ -4,25 +4,56 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Vue_Liste_Map">
+    tools:context=".Vue_Liste_Map"
+    android:weightSum="100"
+    android:animateLayoutChanges="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="#fff"
+        android:weightSum="2"
+        android:layout_weight="10">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Favoris"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Tous"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"/>
+
+    </LinearLayout>
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         android:name="com.google.android.gms.maps.MapFragment"
         android:id="@+id/map"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_gravity="top"
-        android:layout_weight="50"/>
+        android:layout_height="0dp"
+        android:layout_weight="40" />
+
+    <Button
+        android:id="@+id/dragButton"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"/>
     
     <ListView
         android:id="@+id/list"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_gravity="bottom"
-        android:layout_weight="50">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="45">
     </ListView>
 </LinearLayout>

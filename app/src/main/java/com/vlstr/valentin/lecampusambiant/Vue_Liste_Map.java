@@ -5,11 +5,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -36,6 +40,7 @@ public class Vue_Liste_Map extends FragmentActivity implements OnMapReadyCallbac
     private GoogleMap googleMap = null;
     private ArrayList<Marker> list_marker= null;
     private String[] titles;
+    private Button dragButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +48,29 @@ public class Vue_Liste_Map extends FragmentActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_vue_liste_map);
 
         listeRestaurants = (ListView) findViewById(R.id.list);
-
+        dragButton = (Button) findViewById(R.id.dragButton);
 
         mMapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mMapFragment.getMapAsync(this);
+        dragButton.setOnClickListener(handlerDrag);
     }
+
+    View.OnClickListener handlerDrag = new View.OnClickListener() {
+        public void onClick(View v) {
+
+            if (mMapFragment.getView().getVisibility()==View.VISIBLE) {
+                mMapFragment.getView().setVisibility(View.INVISIBLE);
+                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)mMapFragment.getView().getLayoutParams();
+                params.weight=0;
+                mMapFragment.getView().setLayoutParams(params);
+            }else {
+                mMapFragment.getView().setVisibility(View.VISIBLE);
+                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)mMapFragment.getView().getLayoutParams();
+                params.weight=40;
+                mMapFragment.getView().setLayoutParams(params);
+            }
+        }
+    };
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
