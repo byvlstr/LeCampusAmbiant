@@ -1,16 +1,429 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:columnCount="1"
+    android:orientation="vertical"
+    android:rowCount="5"
     tools:context="com.vlstr.valentin.lecampusambiant.MainActivity">
 
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="false"
+        android:background="#000000"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_castorpollux" />
+
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="CASTOR &amp; POLLUX"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        android:columnCount="3"
+        android:orientation="vertical"
+        android:rowCount="1">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.5"
+            android:height="50dp"
+            android:text="Du lundi au vendredi\n12h-14h"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.5"
+            android:height="50dp"
+            android:text="Samedi\n18h-20h"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.5"
+            android:height="50dp"
+            android:text="Dimanche\n18h-20h"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.05"
+        android:columnCount="1"
+        android:orientation="vertical"
+        android:rowCount="2">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_row="0"
+            android:text="TEMPS D&apos;ATTENTE ACTUEL : 5 min"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="805dp"
+            android:layout_height="104dp"
+            android:layout_column="0"
+            android:layout_marginBottom="-30dp"
+            android:layout_marginLeft="-30dp"
+            android:layout_marginTop="-30dp"
+            android:layout_row="1"
+            android:background="@mipmap/ic_graph2"
+            android:contentDescription="graph"
+            android:cropToPadding="false" />
+
+    </GridLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="3">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:columnCount="4"
+            android:orientation="vertical"
+            android:rowCount="4">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="MENU"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Entrées"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="4"
+                    android:rowCount="1">
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_marginLeft="10dp"
+                        android:layout_row="0"
+                        android:text="Boudin noir - pommes de terre"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <ImageButton
+                        android:id="@+id/Vegan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/ic_vegan" />
+
+                    <ImageButton
+                        android:id="@+id/like"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@mipmap/ic_like" />
+
+                    <ImageButton
+                        android:id="@+id/amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/ic_medium" />
+                </GridLayout>
+
+            </GridLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Plat Principal"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="4"
+                    android:rowCount="1">
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Poulet avec purée"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <ImageButton
+                        android:id="@+id/Vegan2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#ffffff" />
+
+                    <ImageButton
+                        android:id="@+id/like2"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@mipmap/ic_dislike" />
+
+                    <ImageButton
+                        android:id="@+id/amount2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_high" />
+                </GridLayout>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="4"
+                    android:rowCount="1">
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Couscous"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <ImageButton
+                        android:id="@+id/Vegan3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_horizontal"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_vegan" />
+
+                    <ImageButton
+                        android:id="@+id/like3"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@mipmap/ic_like" />
+
+                    <ImageButton
+                        android:id="@+id/amount3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_low" />
+                </GridLayout>
+
+            </GridLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Desserts"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="4"
+                    android:rowCount="1">
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Saint Marcelin"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <ImageButton
+                        android:id="@+id/Vegan4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#ffffff" />
+
+                    <ImageButton
+                        android:id="@+id/like4"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@mipmap/ic_like" />
+
+                    <ImageButton
+                        android:id="@+id/amount4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_medium" />
+                </GridLayout>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="4"
+                    android:rowCount="1">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Tarte au Citron"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <ImageButton
+                        android:id="@+id/Vegan5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_vegan" />
+
+                    <ImageButton
+                        android:id="@+id/like5"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@mipmap/ic_like" />
+
+                    <ImageButton
+                        android:id="@+id/amount5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_low" />
+                </GridLayout>
+
+            </GridLayout>
+        </GridLayout>
+    </ScrollView>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#ef5350"
+        android:columnCount="3"
+        android:elevation="4dp">
+
+        <ImageButton
+            android:id="@+id/cash"
+            android:layout_height="48dp"
+            android:layout_column="0"
+            android:layout_marginLeft="40dp"
+            android:layout_row="0"
+            android:background="@null"
+            android:clickable="true"
+            android:nestedScrollingEnabled="true"
+            android:onClick="onBtnClicked"
+            android:src="@mipmap/ic_cash" />
+
+        <ImageButton
+            android:id="@+id/fav"
+            android:layout_height="48dp"
+            android:layout_column="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_row="0"
+            android:background="@null"
+            android:clickable="true"
+            android:onClick="onBtnClicked"
+            android:src="@mipmap/ic_fav_unset" />
+
+        <ImageButton
+            android:id="@+id/map"
+            android:layout_height="48dp"
+            android:layout_column="2"
+            android:layout_marginRight="40dp"
+            android:layout_row="0"
+            android:background="@null"
+            android:clickable="true"
+            android:onClick="onBtnClicked"
+            android:src="@mipmap/ic_map" />
+    </GridLayout>
+</LinearLayout>

@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:rowCount="5"
     android:columnCount="1"
     android:orientation="horizontal"
+    android:rowCount="5"
     tools:context="com.vlstr.valentin.lecampusambiant.Vue_Resto">
 
 
