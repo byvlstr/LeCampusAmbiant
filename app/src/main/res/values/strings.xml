@@ -8,4 +8,5 @@
     <string name="title_activity_resto">Vue Resto</string>
     <string name="title_activity_solde">Vue Solde</string>
     <string name="drawer_open">Menu</string>
+    <string name="title_activity_vue__plat">Vue_Plat</string>
 </resources>

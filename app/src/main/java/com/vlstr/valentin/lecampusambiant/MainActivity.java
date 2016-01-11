@@ -12,12 +12,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     boolean favSet = false;
 
+    //5,7,9,10,11
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,19 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        ((TextView)findViewById(R.id.textView5)).setOnClickListener(handlerPlat);
+        ((TextView)findViewById(R.id.textView7)).setOnClickListener(handlerPlat);
+        ((TextView)findViewById(R.id.textView9)).setOnClickListener(handlerPlat);
+        ((TextView)findViewById(R.id.textView10)).setOnClickListener(handlerPlat);
+        ((TextView)findViewById(R.id.textView11)).setOnClickListener(handlerPlat);
     }
+    View.OnClickListener handlerPlat = new View.OnClickListener() {
+        public void onClick(View v) {
+            Intent intent = new Intent(MainActivity.this, Vue_Plat.class);
+            startActivity(intent);
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
