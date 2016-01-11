@@ -1,15 +1,23 @@
 package com.vlstr.valentin.lecampusambiant;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -53,11 +61,18 @@ public class Vue_Liste_Map extends AppCompatActivity implements OnMapReadyCallba
             }
         }
     };
+
+    ArrayList<Marker> list_marker = new ArrayList<Marker>();
+    private boolean isSpeakButtonLongPressed = false;
+
     private GoogleMap googleMap = null;
     //Slider
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
+
+    //Swiper
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -103,9 +118,6 @@ public class Vue_Liste_Map extends AppCompatActivity implements OnMapReadyCallba
 
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
 
         mMapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mMapFragment.getMapAsync(this);
@@ -170,7 +182,7 @@ public class Vue_Liste_Map extends AppCompatActivity implements OnMapReadyCallba
     }
 
     private void initMapExample() {
-        ArrayList<Marker> list_marker = new ArrayList<Marker>();
+
         list_marker.add(googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(45.781094, 4.873474))
                 .title("Castor&Pollux")));
@@ -218,6 +230,40 @@ public class Vue_Liste_Map extends AppCompatActivity implements OnMapReadyCallba
                 }
             }
         });;*/
+
+        listeRestaurants.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> arg0, View view, int position, long id) {
+                String item = (String) arg0.getItemAtPosition(position);
+                for (int i = 0; i < list_marker.size(); i++){
+                    Marker selected = list_marker.get(i);
+                    if (selected.getTitle().equals(item)) {
+                        mMapFragment.getMap().animateCamera(CameraUpdateFactory.newLatLngZoom(selected.getPosition(),17), 1000, null);
+                        selected.showInfoWindow();
+                        isSpeakButtonLongPressed = true;
+                        break;
+                    }
+                }
+
+                return true;
+            }
+        });
+        listeRestaurants.setOnTouchListener(new AdapterView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View pView, MotionEvent pEvent) {
+                pView.onTouchEvent(pEvent);
+                // We're only interested in when the button is released.
+                if (pEvent.getAction() == MotionEvent.ACTION_UP) {
+                    // We're only interested in anything if our speak button is currently pressed.
+                    if (isSpeakButtonLongPressed) {
+                        // Do something when the button is released.
+                        mMapFragment.getMap().animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(45.781936, 4.872686),15), 1000, null);
+                        isSpeakButtonLongPressed = false;
+                    }
+                }
+                return false;
+            }
+        });
         listeRestaurants.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0,
@@ -227,4 +273,6 @@ public class Vue_Liste_Map extends AppCompatActivity implements OnMapReadyCallba
             }
         });
     }
+
+
 }
