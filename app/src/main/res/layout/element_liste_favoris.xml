@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:textColor="#343434"
         android:textSize="10dip"
-        android:text="7 minutes"
+        android:text="7"
         android:layout_alignTop="@+id/artist"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@+id/artist"
@@ -70,6 +70,20 @@
         android:textStyle="bold"
         android:focusable="false"
         android:clickable="false"/>
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#343434"
+        android:textSize="10dip"
+        android:text=" minutes"
+        android:layout_alignTop="@+id/artist"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/tempsAttente"
+        android:textStyle="bold"
+        android:focusable="false"
+        android:clickable="false" />
 
     <ImageButton
         android:layout_width="30dp"
@@ -82,7 +96,7 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:layout_marginRight="5dp"
-        android:backgroundTint="#1e87f5"
+        android:backgroundTint="#e52929"
         android:backgroundTintMode="src_in"
         android:clickable="false"/>
 
