@@ -320,8 +320,7 @@
                     android:layout_marginTop="10dp"
                     android:backgroundTint="#10b001"
                     android:backgroundTintMode="src_in"
-                    android:layout_marginLeft="10dp"
-                    android:src="B" />
+                    android:layout_marginLeft="10dp"/>
 
                 <ImageButton
                     android:id="@+id/like"
