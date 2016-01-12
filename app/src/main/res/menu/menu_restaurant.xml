@@ -9,7 +9,7 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/cochon"
         android:icon="@drawable/ic_cochon"
         android:title="Solde"
         app:showAsAction="ifRoom" />

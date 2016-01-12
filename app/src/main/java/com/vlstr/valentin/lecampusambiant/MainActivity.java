@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    boolean favSet = false;
+    boolean favSet = true;
     boolean changeStar = false;
 
     @Override
@@ -69,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == android.R.id.home) {
             finish();
+        }
+
+        if (id == R.id.cochon) {
+            Intent intent = new Intent(MainActivity.this, Vue_Solde.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

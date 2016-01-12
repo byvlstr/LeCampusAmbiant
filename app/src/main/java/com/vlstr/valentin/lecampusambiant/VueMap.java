@@ -124,17 +124,14 @@ public class VueMap extends android.support.v4.app.Fragment implements OnMapRead
         }
 
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_list_item_1, android.R.id.text1, titles);
-
         //listeRestaurants.setAdapter(adapter);
 
         ListeFavorisAdapter adapter = new ListeFavorisAdapter(getActivity() , titles );
         listeRestaurants.setAdapter(adapter);
-
         listeRestaurants.setClickable(true);
         listeRestaurants.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View view, int position, long id) {
-                Log.d("YOOO", arg0.getItemAtPosition(position).toString());
                 Object item = arg0.getItemAtPosition(position).toString();
                 for (int i = 0; i < list_marker.size(); i++){
                     Marker selected = list_marker.get(i);

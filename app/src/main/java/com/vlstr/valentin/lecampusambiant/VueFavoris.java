@@ -1,10 +1,12 @@
 package com.vlstr.valentin.lecampusambiant;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 /**
@@ -26,6 +28,15 @@ public class VueFavoris extends Fragment {
         list = (ListView) rootView.findViewById(R.id.ListView);
         ListeFavorisAdapter adapter = new ListeFavorisAdapter(getActivity() , text );
         list.setAdapter(adapter);
+        list.setClickable(true);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0,
+                                    View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return rootView;
     }
