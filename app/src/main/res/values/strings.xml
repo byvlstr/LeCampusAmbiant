@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">LeCampusAmbiant</string>
+    <string name="app_name">RestauOuTai</string>
     <string name="action_settings">Settings</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_map__fragment">Campus Ambiant</string>
+    <string name="title_activity_map__fragment">RestauOuTai</string>
     <string name="title_activity_resto">Vue Resto</string>
     <string name="title_activity_solde">Vue Solde</string>
     <string name="drawer_open">Menu</string>

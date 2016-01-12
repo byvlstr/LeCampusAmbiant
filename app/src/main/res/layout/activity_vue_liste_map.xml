@@ -27,45 +27,26 @@
             android:layout_height="match_parent"
             android:animateLayoutChanges="true"
             android:orientation="vertical"
+            app:tabIndicatorColor="@android:color/white"
             android:weightSum="100"
             tools:context=".Vue_Liste_Map">
 
 
-            <LinearLayout
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_layout"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="10"
-                android:background="#fff"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar"
+                android:background="?attr/colorPrimary"
+                android:elevation="6dp"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/myTabLayout"/>
 
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:minHeight="0dp"
-                    android:minWidth="0dp"
-                    android:padding="0dp"
-                    android:src="@drawable/ic_favorite_fragment"
-                    android:text="Favoris" />
-
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:minHeight="0dp"
-                    android:minWidth="0dp"
-                    android:padding="0dp"
-                    android:src="@drawable/ic_full_fragment"
-                    android:text="Tous" />
-
-            </LinearLayout>
-
-            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/fragment_fixe"
-                android:name="com.vlstr.valentin.lecampusambiant.VueMap"
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="fill_parent"
+                android:layout_below="@id/tab_layout"/>
 
         </LinearLayout>
 

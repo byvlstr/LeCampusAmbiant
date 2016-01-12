@@ -28,7 +28,7 @@ import java.util.ArrayList;
 /**
  * Created by Aiebobo on 12/01/2016.
  */
-public class VueMap extends Fragment implements OnMapReadyCallback{
+public class VueMap extends android.support.v4.app.Fragment implements OnMapReadyCallback {
 
     ListView listeRestaurants;
     private MapFragment mMapFragment;
@@ -64,7 +64,7 @@ public class VueMap extends Fragment implements OnMapReadyCallback{
         View rootView = inflater.inflate(R.layout.fragment_map, container, false);
         listeRestaurants = (ListView) rootView.findViewById(R.id.list);
         Button dragButton = (Button) rootView.findViewById(R.id.dragButton);
-        mMapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+        mMapFragment = (MapFragment) getActivity().getFragmentManager().findFragmentById(R.id.map);
         mMapFragment.getMapAsync(this);
         dragButton.setOnClickListener(handlerDrag);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
