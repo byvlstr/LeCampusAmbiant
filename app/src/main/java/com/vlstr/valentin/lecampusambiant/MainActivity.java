@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     boolean favSet = true;
-    boolean changeStar = true;
+    boolean changeStar = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
