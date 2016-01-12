@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     boolean favSet = true;
-    boolean changeStar = false;
+    boolean changeStar = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +61,11 @@ public class MainActivity extends AppCompatActivity {
             if (changeStar == false) {
                 item.setIcon(R.drawable.ic_star_border_black_24dp);
                 changeStar = true;
+                Toast.makeText(getApplicationContext(), "Supprimé des Favoris", Toast.LENGTH_SHORT).show();
             }else {
                 item.setIcon(R.drawable.ic_star_black_24dp);
                 changeStar = false;
+                Toast.makeText(getApplicationContext(), "Ajouté aux Favoris", Toast.LENGTH_SHORT).show();
             }
         }
 

@@ -2,13 +2,21 @@ package com.vlstr.valentin.lecampusambiant;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 public class Vue_Plat extends AppCompatActivity {
+
+    FloatingActionButton like;
+    FloatingActionButton dislike;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +28,24 @@ public class Vue_Plat extends AppCompatActivity {
         getSupportActionBar().setTitle("Couscous");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        like = (FloatingActionButton) findViewById(R.id.fab);
+        dislike = (FloatingActionButton) findViewById(R.id.fab2);
+
+        like.setOnClickListener(new AdapterView.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Mmmmm !!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        dislike.setOnClickListener(new AdapterView.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Beurk !!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
     @Override
