@@ -85,7 +85,8 @@ public class Vue_Liste_Map extends AppCompatActivity implements OnMapReadyCallba
         setContentView(R.layout.activity_vue_liste_map);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
         listeRestaurants = (ListView) findViewById(R.id.list);
         Button dragButton = (Button) findViewById(R.id.dragButton);
 
@@ -159,7 +160,11 @@ public class Vue_Liste_Map extends AppCompatActivity implements OnMapReadyCallba
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(Vue_Liste_Map.this, "Time for an upgrade!", Toast.LENGTH_SHORT).show();
+                String item = (String) parent.getItemAtPosition(position);
+                if (item == "Mes abonnements"){
+                    Intent intent = new Intent(Vue_Liste_Map.this, Vue_Solde.class);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -273,6 +278,4 @@ public class Vue_Liste_Map extends AppCompatActivity implements OnMapReadyCallba
             }
         });
     }
-
-
 }
