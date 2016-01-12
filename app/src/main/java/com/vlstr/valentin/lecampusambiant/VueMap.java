@@ -123,11 +123,16 @@ public class VueMap extends android.support.v4.app.Fragment implements OnMapRead
             titles[i] = list_marker.get(i).getTitle();
         }
 
+        boolean[] listeFav = {true, true, true, false, false, false, false};
+        boolean[] listeAime = {true, true, false, false, false, false, false};
+        int[] listeType = {1, 1, 3, 2, 2, 2, 1};
+
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_list_item_1, android.R.id.text1, titles);
         //listeRestaurants.setAdapter(adapter);
 
-        ListeFavorisAdapter adapter = new ListeFavorisAdapter(getActivity() , titles );
+        ListeMapAdapter adapter = new ListeMapAdapter(getActivity() , titles, listeFav, listeAime, listeType );
         listeRestaurants.setAdapter(adapter);
+
         listeRestaurants.setClickable(true);
         listeRestaurants.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
