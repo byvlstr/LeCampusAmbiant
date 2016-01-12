@@ -153,7 +153,6 @@ public class VueMap extends Fragment implements OnMapReadyCallback{
                 return false;
             }
         });
-/*
         listeRestaurants.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0,
@@ -161,7 +160,7 @@ public class VueMap extends Fragment implements OnMapReadyCallback{
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
-    
+
 }
