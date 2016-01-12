@@ -15,7 +15,7 @@ import android.widget.ListView;
 public class VueFavoris extends Fragment {
 
     ListView list;
-    String[] text = { "Castor & Pollux","Restaurant universitaire", "Le grillon"};
+    String[] text = { "Castor&Pollux","Restaurant Universitaire", "L'Olivier"};
 
     public VueFavoris() {
     }
