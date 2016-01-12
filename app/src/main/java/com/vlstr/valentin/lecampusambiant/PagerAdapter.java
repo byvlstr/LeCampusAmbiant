@@ -16,10 +16,10 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                VueFavoris tab1 = new VueFavoris();
+                VueMap tab1 = new VueMap();
                 return tab1;
             case 1:
-                VueMap tab2 = new VueMap();
+                VueFavoris tab2 = new VueFavoris();
                 return tab2;
             default:
                 return null;

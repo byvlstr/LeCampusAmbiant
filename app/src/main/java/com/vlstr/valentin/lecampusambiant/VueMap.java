@@ -3,6 +3,7 @@ package com.vlstr.valentin.lecampusambiant;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -34,6 +36,8 @@ public class VueMap extends android.support.v4.app.Fragment implements OnMapRead
     private MapFragment mMapFragment;
     View.OnClickListener handlerDrag = new View.OnClickListener() {
         public void onClick(View v) {
+            ImageButton dragButton = (ImageButton) getActivity().findViewById(R.id.dragButton);
+
             if (mMapFragment.getView().getVisibility() == View.VISIBLE) {
                 mMapFragment.getView().setVisibility(View.INVISIBLE);
                 LinearLayout.LayoutParams paramsMap = (LinearLayout.LayoutParams) mMapFragment.getView().getLayoutParams();
@@ -42,6 +46,8 @@ public class VueMap extends android.support.v4.app.Fragment implements OnMapRead
                 paramsMap.weight = 0;
                 mMapFragment.getView().setLayoutParams(paramsMap);
                 listeRestaurants.setLayoutParams(paramsList);
+                dragButton.setImageResource(R.drawable.ic_slide_down);
+
             } else {
                 mMapFragment.getView().setVisibility(View.VISIBLE);
                 LinearLayout.LayoutParams paramsMap = (LinearLayout.LayoutParams) mMapFragment.getView().getLayoutParams();
@@ -49,6 +55,7 @@ public class VueMap extends android.support.v4.app.Fragment implements OnMapRead
                 paramsList.weight = 45;
                 paramsMap.weight = 40;
                 mMapFragment.getView().setLayoutParams(paramsMap);
+                dragButton.setImageResource(R.drawable.ic_slide);
             }
         }
     };
@@ -63,7 +70,7 @@ public class VueMap extends android.support.v4.app.Fragment implements OnMapRead
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_map, container, false);
         listeRestaurants = (ListView) rootView.findViewById(R.id.list);
-        Button dragButton = (Button) rootView.findViewById(R.id.dragButton);
+        ImageButton dragButton = (ImageButton) rootView.findViewById(R.id.dragButton);
         mMapFragment = (MapFragment) getActivity().getFragmentManager().findFragmentById(R.id.map);
         mMapFragment.getMapAsync(this);
         dragButton.setOnClickListener(handlerDrag);
@@ -116,14 +123,19 @@ public class VueMap extends android.support.v4.app.Fragment implements OnMapRead
             titles[i] = list_marker.get(i).getTitle();
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_list_item_1, android.R.id.text1, titles);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_list_item_1, android.R.id.text1, titles);
 
+        //listeRestaurants.setAdapter(adapter);
+
+        ListeFavorisAdapter adapter = new ListeFavorisAdapter(getActivity() , titles );
         listeRestaurants.setAdapter(adapter);
+
         listeRestaurants.setClickable(true);
         listeRestaurants.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View view, int position, long id) {
-                String item = (String) arg0.getItemAtPosition(position);
+                Log.d("YOOO", arg0.getItemAtPosition(position).toString());
+                Object item = arg0.getItemAtPosition(position).toString();
                 for (int i = 0; i < list_marker.size(); i++){
                     Marker selected = list_marker.get(i);
                     if (selected.getTitle().equals(item)) {

@@ -96,8 +96,8 @@ public class Vue_Liste_Map extends AppCompatActivity {
 
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Favoris"));
         tabLayout.addTab(tabLayout.newTab().setText("Tous"));
+        tabLayout.addTab(tabLayout.newTab().setText("Favoris"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
