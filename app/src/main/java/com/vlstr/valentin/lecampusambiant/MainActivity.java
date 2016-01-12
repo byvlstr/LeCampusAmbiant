@@ -19,17 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
     boolean favSet = false;
 
-    //5,7,9,10,11
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.action_bar_container, new PlaceholderFragment("vueResto"))
-                    .addToBackStack("vueResto")
-                    .commit();
-        }*/
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -24,9 +24,10 @@ public class Vue_Solde extends AppCompatActivity {
         setContentView(R.layout.activity_solde);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setTitle("Mon Solde");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        fillList();
+        //fillList();
     }
 
     @Override
@@ -55,7 +56,7 @@ public class Vue_Solde extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void fillList(){
+    /*public void fillList(){
         ItemSolde insa  = new ItemSolde();
             insa.setTitre("INSA de Lyon");
             insa.setSoldeTexte("Solde restant: $");
@@ -82,6 +83,6 @@ public class Vue_Solde extends AppCompatActivity {
         Custom_array_adapter_solde adapter = new Custom_array_adapter_solde(this,items,this.getLayoutInflater());
         ListView myList = (ListView) findViewById(R.id.listView);
         myList.setAdapter(adapter);
-    }
+    }*/
 
 }

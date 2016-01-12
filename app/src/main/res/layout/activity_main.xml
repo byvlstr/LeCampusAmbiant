@@ -274,7 +274,7 @@
         android:orientation="vertical"
         android:rowCount="4">
 
-                <GridLayout
+        <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"

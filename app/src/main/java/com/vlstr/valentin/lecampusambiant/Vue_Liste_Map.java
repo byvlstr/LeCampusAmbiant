@@ -119,12 +119,12 @@ public class Vue_Liste_Map extends AppCompatActivity implements OnMapReadyCallba
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        mMapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+        /*mMapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mMapFragment.getMapAsync(this);
         dragButton.setOnClickListener(handlerDrag);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();*/
     }
 
     @Override
