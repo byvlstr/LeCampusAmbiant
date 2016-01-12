@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="10dip">
+
+    <!-- Title Of Song-->
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom restaurant"
+        android:textColor="#040404"
+        android:typeface="monospace"
+        android:textSize="15dip"
+        android:textStyle="bold"
+        android:focusable="false"
+        android:clickable="false"/>
+
+    <!-- Artist Name -->
+    <TextView
+        android:id="@+id/artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#343434"
+        android:textSize="10dip"
+        android:text="Vous pouvez y manger dans"
+        android:layout_alignLeft="@+id/text"
+        android:layout_alignStart="@+id/text"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/text"
+        android:layout_marginLeft="18dp"
+        android:layout_marginBottom="10dp"
+        android:focusable="false"
+        android:clickable="false"/>
+
+    <!-- Rightend Duration -->
+
+    <!-- Rightend Arrow -->
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_alignLeft="@+id/text"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/text"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:background="@drawable/ic_thumb_up_black_48dp"
+        android:backgroundTint="#00b509"
+        android:backgroundTintMode="src_in"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"/>
+
+    <TextView
+        android:id="@+id/tempsAttente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#343434"
+        android:textSize="10dip"
+        android:text="7"
+        android:layout_alignTop="@+id/artist"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/artist"
+        android:layout_marginLeft="5dp"
+        android:textStyle="bold"
+        android:focusable="false"
+        android:clickable="false"/>
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#343434"
+        android:textSize="10dip"
+        android:text=" minutes"
+        android:layout_alignTop="@+id/artist"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/tempsAttente"
+        android:textStyle="bold"
+        android:focusable="false"
+        android:clickable="false" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="-5dp">
+
+        <ImageButton
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:id="@+id/imageType"
+            android:layout_alignBottom="@+id/tempsAttente"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/ic_thumb_up_black_24dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:backgroundTint="#a2a2a2"
+            android:backgroundTintMode="src_in"
+            android:clickable="false"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="3dp" />
+
+        <ImageButton
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:id="@+id/imageAime"
+            android:layout_alignBottom="@+id/tempsAttente"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/ic_thumb_up_black_24dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:backgroundTint="#a2a2a2"
+            android:backgroundTintMode="src_in"
+            android:clickable="false"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="8dp"
+            android:tintMode="src_in"
+            android:tint="#228819" />
+
+        <ImageButton
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/imageStar"
+            android:layout_alignBottom="@+id/tempsAttente"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/ic_star_black_48dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:backgroundTint="#a2a2a2"
+            android:backgroundTintMode="src_in"
+            android:clickable="false"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="8dp"
+            android:tint="#a31818"
+            android:tintMode="src_in" />
+
+    </LinearLayout>
+
+</RelativeLayout>
