@@ -18,6 +18,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     boolean favSet = false;
+    boolean changeStar = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_restaurant, menu);
         return true;
     }
 
@@ -56,8 +57,14 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.star) {
+            if (changeStar == false) {
+                item.setIcon(R.drawable.ic_star_border_black_24dp);
+                changeStar = true;
+            }else {
+                item.setIcon(R.drawable.ic_star_black_24dp);
+                changeStar = false;
+            }
         }
 
         if (id == android.R.id.home) {
@@ -65,42 +72,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void onBtnClicked(View v) {
-        if (v.getId() == R.id.fav) {
-            if (!favSet) {
-                ImageButton img;
-                img = (ImageButton) this.findViewById(R.id.fav);
-                img.setImageResource(R.mipmap.ic_fav);
-                favSet = true;
-                launchToast();
-            } else {
-                ImageButton img;
-                img = (ImageButton) this.findViewById(R.id.fav);
-                img.setImageResource(R.mipmap.ic_fav_unset);
-                favSet = false;
-                launchToast();
-            }
-        } else if (v.getId() == R.id.cash) {
-
-            Intent intent = new Intent(MainActivity.this, Vue_Solde.class);
-            startActivity(intent);
-
-        } else if (v.getId() == R.id.map) {
-
-        }
-    }
-
-    public void launchToast() {
-        if (favSet) {
-            Toast.makeText(getApplicationContext(), "Added to favourites",
-                    Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(getApplicationContext(), "Removed from favourites",
-                    Toast.LENGTH_SHORT).show();
-        }
-
     }
 
     /**

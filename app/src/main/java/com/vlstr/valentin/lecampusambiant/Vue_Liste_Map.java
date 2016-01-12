@@ -120,12 +120,12 @@ public class Vue_Liste_Map extends AppCompatActivity implements OnMapReadyCallba
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        /*mMapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+        mMapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mMapFragment.getMapAsync(this);
         dragButton.setOnClickListener(handlerDrag);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();*/
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     @Override
@@ -219,23 +219,6 @@ public class Vue_Liste_Map extends AppCompatActivity implements OnMapReadyCallba
 
         listeRestaurants.setAdapter(adapter);
         listeRestaurants.setClickable(true);
-        //listener de zoom sur list
-        /*listeRestaurants.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> arg0,
-                                    View view, int position, long id) {
-                String item = (String) arg0.getItemAtPosition(position);
-                for (int i = 0; i < list_marker.size(); i++){
-                    Marker selected = list_marker.get(i);
-                    if (selected.getTitle().equals(item)) {
-                        mMapFragment.getMap().animateCamera(CameraUpdateFactory.newLatLngZoom(selected.getPosition(),17), 1000, null);
-                        selected.showInfoWindow();
-                        break;
-                    }
-                }
-            }
-        });;*/
-
         listeRestaurants.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View view, int position, long id) {
